@@ -89,7 +89,7 @@ namespace ShepardFilter
     {
         const int FREQMIN = 20;
 
-        private List<Filter> filters;
+        List<Filter> filters;
         public float q { get; set; }
         int sr;
         float centerFreq;
@@ -100,7 +100,6 @@ namespace ShepardFilter
         float lastOffset;
 
         private object fLock = new object();
-
         private List<float> gains = new List<float>();
 
         float max;
@@ -219,15 +218,14 @@ namespace ShepardFilter
     {
         private ShepardFilterManager filters;
         private float offset = 0.0f;
-        public float mix = 0.9f;
-        public float q = 16;
-        public float rolloff = 0.5f;
-        public float centerFreq = 500;
-        public int filterCount = 17;
-        public float width = 4.3f;
+        private float mix = 0.9f;
+        private float q = 16;
+        private float rolloff = 0.5f;
+        private float centerFreq = 500;
+        private int filterCount = 17;
+        private float width = 4.3f;
 
-        bool isPlaying;
-        bool shouldChangeOffset = true;
+        private bool shouldUpdate = true;
 
         private void Awake()
         {
@@ -237,54 +235,54 @@ namespace ShepardFilter
         public void SetMix(float m)
         {
             mix = m;
+			shouldUpdate = true;
         }
 
         public void SetQ(int q)
         {
             filters.q = q;
+			shouldUpdate = true;
         }
 
         public void SetRolloff(float r)
         {
-            float rolloff = -Mathf.Log(1 - r, 2);
+            float rolloff = r;
             filters.rolloff = rolloff;
-
+			shouldUpdate = true;
         }
+
+		public void SetWidth(float w){
+			filters.SetWidth(w);
+			shouldUpdate = true;
+		}
 
         public void SetCenterFreq(float f)
         {
             filters.SetCenterFreq(f);
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            isPlaying = GetComponent<AudioSource>().isPlaying;
+            shouldUpdate = true;
         }
 
         public void SetOffset(float offset)
         {
             this.offset = offset;
-            shouldChangeOffset = true;
+            shouldUpdate = true;
         }
 
-        private void FixedUpdate()
-        {
-
-        }
+		private void DoUpdate(){
+			
+	         filters.SetGains(mix);
+             filters.Shift(offset);
+		}
 
         void OnAudioFilterRead(float[] data, int channels)
         {
             if (filters == null)
                 return;
 
-            filters.SetGains(mix);
-            if (shouldChangeOffset)
+            if (shouldUpdate) 
             {
-
-                filters.Shift(offset);
-                shouldChangeOffset = false;
+				DoUpdate();
+                shouldUpdate = false;
             }
 
             for (int i = 0; i < data.Length; i++)
