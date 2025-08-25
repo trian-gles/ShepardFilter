@@ -12,7 +12,7 @@ The effect will not move by itself, you must do this yourself by calling the `Sh
 
 For example, for an endlessly moving filter corresponding to the player's vertical position:
 
-```
+```C#
 void Update(){
     GetComponent<ShepardFilter>.Shift(player.transform.y % 1);
 }
