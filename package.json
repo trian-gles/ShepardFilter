@@ -10,7 +10,7 @@
         {
             "displayName": "Dummy Walking",
             "description": "Example application of filtering footstep sounds",
-            "path": "Samples~/DummyWalking"
+            "path": "Samples/DummyWalking"
         }
     ],
     "author": {

@@ -455,8 +455,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 87d5cdba4d89cbc448b68e6b35f8efba, type: 3}
-  m_Resource: {fileID: 8300000, guid: 87d5cdba4d89cbc448b68e6b35f8efba, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2b2266a1c4069a34dba32f3b3cca4481, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2b2266a1c4069a34dba32f3b3cca4481, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -569,12 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76c6f8b72d48ab49aaab8f9b31e6eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mix: 0.9
-  q: 14
-  rolloff: 0.5
-  centerFreq: 500
-  filterCount: 17
-  width: 4.3
 --- !u!114 &1355570579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,10 +578,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1355570575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67df7c0330c4739478c0939817b03fac, type: 3}
+  m_Script: {fileID: 11500000, guid: 959443aedac27e644b6cc1083d01381f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetChange: 0.2
+  offsetChange: 0.3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
