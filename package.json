@@ -2,7 +2,7 @@
     "name": "com.hawhamburg.shepardfiltering",
     "version": "0.1.0",
     "displayName": "Shepard Filtering",
-    "description": "This is an example package",
+    "description": "This package allows for the application of the Shepard tone effect in the form of a controllable filter.  See README.md",
     "unity": "2019.1",
     "dependencies": {
     },
