@@ -218,12 +218,13 @@ namespace ShepardFilter
     {
         private ShepardFilterManager filters;
         private float offset = 0.0f;
-        private float mix = 0.9f;
-        private float q = 16;
-        private float rolloff = 0.5f;
-        private float centerFreq = 500;
-        private int filterCount = 17;
-        private float width = 4.3f;
+
+        [SerializeField] private float mix = 0.9f;
+        [SerializeField] private float q = 16;
+        [SerializeField] private float rolloff = 0.5f;
+        [SerializeField] private float centerFreq = 500;
+        [SerializeField] private int filterCount = 17;
+        [SerializeField] private float width = 4.3f;
 
         private bool shouldUpdate = true;
 
