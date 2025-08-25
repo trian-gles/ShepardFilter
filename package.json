@@ -6,6 +6,13 @@
     "unity": "2019.1",
     "dependencies": {
     },
+    "samples": [
+        {
+            "displayName": "Dummy Walking",
+            "description": "Example application of filtering footstep sounds",
+            "path": "Samples~/DummyWalking"
+        }
+    ],
     "author": {
         "name": "Kieran McAuliffe",
         "email": "bkieranmcauliffe@gmail.com"
